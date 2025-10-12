@@ -1,0 +1,19 @@
+<section class="search">
+  <label for="q">Search Board Games</label>
+  <input
+    id="q"
+    type="text"
+    [formControl]="query"
+    placeholder="e.g. Catan, Gloomhaven, Azul"
+    autocomplete="off"
+  />
+
+  <div class="meta">
+    <span *ngIf="loading()">Loading…</span>
+    <span *ngIf="!loading() && count()">Found {{ count() }} game(s)</span>
+    <span class="error" *ngIf="error()">{{ error() }}</span>
+  </div>
+
+  <!-- Pass the list down to a pure presentational component -->
+  <app-results [items]="results()"></app-results>
+</section>

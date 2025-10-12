@@ -1,0 +1,25 @@
+.search {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+#q {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.meta {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.error {
+  color: #d33;
+}

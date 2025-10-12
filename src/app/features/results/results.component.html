@@ -1,0 +1,7 @@
+<div class="grid" *ngIf="items?.length; else empty">
+  <app-boardgame-card *ngFor="let g of items" [game]="g"></app-boardgame-card>
+</div>
+
+<ng-template #empty>
+  <p>No results yet. Try typing a game title above.</p>
+</ng-template>
