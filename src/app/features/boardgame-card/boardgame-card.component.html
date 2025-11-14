@@ -1,14 +1,19 @@
-<article class="card" *ngIf="game">
-  <img *ngIf="game.thumbnail" [src]="game.thumbnail" [alt]="game.name" />
-  <header>
-    <h3>{{ game.name }}</h3>
-    <small *ngIf="game.year">({{ game.year }})</small>
-  </header>
+<article class="card">
+  @if (game.thumbnail) {
+    <img [src]="game.thumbnail" [alt]="game.name" />
+  }
 
-  <ul class="facts">
-    <li *ngIf="game.minPlayers">Players: {{ game.minPlayers }}–{{ game.maxPlayers }}</li>
-    <li *ngIf="game.playingTime">Time: ~{{ game.playingTime }} min</li>
-    <li *ngIf="game.avgRating">Rating: {{ game.avgRating | number:'1.1-2' }}</li>
-    <li *ngIf="game.rank">Rank: #{{ game.rank }}</li>
-  </ul>
+  <h2>{{ game.name }}</h2>
+
+  @if (game.year_published) {
+    <p>Published: {{ game.year_published }}</p>
+  }
+
+  @if (game.min_players && game.max_players) {
+    <p>Players: {{ game.min_players }} – {{ game.max_players }}</p>
+  }
+
+  @if (game.price) {
+    <p>Price: {{ game.price | number:'1.2-2' }} USD</p>
+  }
 </article>

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoardGame } from '../../core/services/bgg.service'; 
+import { BoardGame } from '../../core/models/board-game.model';
 
 @Component({
   selector: 'app-boardgame-card',
@@ -10,6 +10,5 @@ import { BoardGame } from '../../core/services/bgg.service';
   styleUrls: ['./boardgame-card.component.css']
 })
 export class BoardgameCardComponent {
-  // One game in, render its details. Keeps logic minimal and focused on presentation.
-  @Input() game!: BoardGame;
+  @Input({ required: true }) game!: BoardGame;
 }

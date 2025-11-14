@@ -1,7 +1,11 @@
-<div class="grid" *ngIf="items?.length; else empty">
-  <app-boardgame-card *ngFor="let g of items" [game]="g"></app-boardgame-card>
+<div class="results-wrapper">
+  @if (games().length === 0) {
+    <p class="no-results">No results found.</p>
+  } @else {
+    <div class="results-grid">
+      @for (game of games(); track game.id) {
+        <app-boardgame-card [game]="game"></app-boardgame-card>
+      }
+    </div>
+  }
 </div>
-
-<ng-template #empty>
-  <p>No results yet. Try typing a game title above.</p>
-</ng-template>

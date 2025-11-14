@@ -9,11 +9,17 @@
   />
 
   <div class="meta">
-    <span *ngIf="loading()">Loading…</span>
-    <span *ngIf="!loading() && count()">Found {{ count() }} game(s)</span>
-    <span class="error" *ngIf="error()">{{ error() }}</span>
+    @if (loading()) {
+      <span>Loading…</span>
+    } @else if (count()) {
+      <span>Found {{ count() }} game(s)</span>
+    }
+
+    @if (error()) {
+      <span class="error">{{ error() }}</span>
+    }
   </div>
 
-  <!-- Pass the list down to a pure presentational component -->
+  <!-- Pass the list down to the results component -->
   <app-results [items]="results()"></app-results>
 </section>
